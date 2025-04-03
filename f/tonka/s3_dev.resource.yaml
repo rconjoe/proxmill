@@ -1,0 +1,10 @@
+description: dev minio bucket
+value:
+  accessKey: '$var:f/tonka/s3_access_key'
+  bucket: dev
+  endPoint: bucket.bigtonk.com
+  pathStyle: true
+  region: auto
+  secretKey: '$var:f/tonka/s3_secret_key'
+  useSSL: true
+resource_type: s3

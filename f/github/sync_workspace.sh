@@ -7,7 +7,7 @@ token=$(curl -s -H "Authorization: Bearer $WM_TOKEN" \
 npm i -g windmill-cli
 
 git clone https://rconjoe:$token@github.com/rconjoe/proxmill.git
-cd mill
+cd proxmill
 
 git config user.name "rconjoe"
 git config user.email "root@trog.codes"

@@ -1,0 +1,10 @@
+description: '"tonk" bucket on r2'
+value:
+  accessKey: '$var:f/tonka/r2_tonk_key'
+  bucket: tonk
+  endPoint: '$var:f/tonka/r2_tonk_endpoint'
+  pathStyle: true
+  region: auto
+  secretKey: '$var:f/tonka/r2_tonk_secret'
+  useSSL: true
+resource_type: s3

@@ -1,3 +1,6 @@
 locks:
-  f/github/sync_workspace: 391badf58182e35ec9f11758d68e0ec6b7f682988589469da25d164dd572fdc3
+  f/github/sync_workspace: 71dea19fb797c2108bd73cf7c5e56010fd33a97d4ec403b02bea67b64870d360
+  f/tonka/kysely_codegen: 9fe5098366496576c16c122a39f3f405f235fd7cbd8dbe7a84bd42ab9228f53d
+  f/tonka/youtube_list: c9147cffbdab270d0e87e5c54ebf29899eb00d8bf4ef4535c34af6c4fc468222
   u/jcarlton1227/reasoned_script: aff0808b196656301e80ec19fe4a787ea73f072c4f75a18439b779815f815c9a
+  u/jcarlton1227/straightforward_script: 60ffa6bc182710c0bd881cdb9642e0170da06896309feb72b12cbd6b0d049474
