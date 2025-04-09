@@ -1,4 +1,4 @@
-summary: S3 File Explorer
+summary: s3 - img.bigtonk.com
 value:
   css:
     containercomponent:
@@ -783,6 +783,7 @@ value:
           type: buttoncomponent
           componentInput:
             type: runnable
+            autoRefresh: false
             fields:
               object_name:
                 type: connected
@@ -797,7 +798,7 @@ value:
                 fieldType: object
                 format: resource-s3
             fieldType: any
-            recomputeOnInputChanged: true
+            recomputeOnInputChanged: false
             runnable:
               type: runnableByName
               name: Get object signed URL
@@ -805,7 +806,7 @@ value:
                 content: '!inline get_object_signed_url.inline_script.deno.ts'
                 lock: '!inline get_object_signed_url.inline_script.lock'
                 language: deno
-                path: u/adam/file-explorer/Get object signed URL
+                path: f/tonka/r2_explorer/Get_object_signed_URL
                 schema:
                   $schema: 'https://json-schema.org/draft/2020-12/schema'
                   type: object
@@ -826,6 +827,7 @@ value:
               value: ExternalLink
             beforeIcon:
               type: static
+              value: ''
             color:
               type: static
               value: dark
@@ -838,6 +840,9 @@ value:
             label:
               type: static
               value: Open presigned URL
+            onError:
+              configuration: {}
+              selected: ''
             onSuccess:
               type: oneOf
               configuration:
