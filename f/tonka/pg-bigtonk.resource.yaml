@@ -1,0 +1,9 @@
+description: postrges
+value:
+  dbname: railway
+  host: interchange.proxy.rlwy.net
+  password: '$var:f/tonka/pg-bigtonk'
+  port: 15379
+  root_certificate_pem: ''
+  user: postgres
+resource_type: postgresql

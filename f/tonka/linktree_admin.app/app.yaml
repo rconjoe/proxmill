@@ -1,0 +1,561 @@
+summary: bigtonk.com Admin
+value:
+  fullscreen: false
+  grid:
+    - '12':
+        fixed: true
+        fullHeight: false
+        h: 2
+        w: 12
+        x: 0
+        'y': 0
+      '3':
+        fixed: true
+        fullHeight: false
+        h: 2
+        w: 6
+        x: 0
+        'y': 0
+      id: topbar
+      data:
+        id: topbar
+        type: containercomponent
+        actions: []
+        configuration: {}
+        customCss:
+          container:
+            class: '!p-0'
+            style: ''
+        numberOfSubgrids: 1
+    - '12':
+        fixed: false
+        fullHeight: true
+        h: 17
+        w: 12
+        x: 0
+        'y': 2
+      '3':
+        fixed: false
+        fullHeight: false
+        h: 8
+        w: 2
+        x: 0
+        'y': 10
+      id: b
+      data:
+        id: b
+        type: tabscomponent
+        actions: []
+        configuration:
+          tabsKind:
+            type: static
+            value: tabs
+        customCss:
+          allTabs:
+            class: ''
+            style: ''
+          container:
+            class: ''
+            style: ''
+          selectedTab:
+            class: ''
+            style: ''
+          tabRow:
+            class: ''
+            style: ''
+        disabledTabs: []
+        numberOfSubgrids: 2
+        onTabChange: []
+        tabs:
+          - Linktree
+          - Sponsors
+  hiddenInlineScripts: []
+  hideLegacyTopBar: true
+  mobileViewOnSmallerScreens: false
+  norefreshbar: false
+  subgrids:
+    a-0: []
+    b-0:
+      - '12':
+          fixed: false
+          fullHeight: false
+          h: 15
+          w: 12
+          x: 0
+          'y': 0
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 8
+          w: 2
+          x: 0
+          'y': 0
+        id: a
+        data:
+          id: a
+          type: dbexplorercomponent
+          actions: []
+          configuration:
+            type:
+              type: oneOf
+              configuration:
+                bigquery:
+                  resource:
+                    type: static
+                    value: ''
+                  table:
+                    type: static
+                ms_sql_server:
+                  resource:
+                    type: static
+                    value: ''
+                  table:
+                    type: static
+                mysql:
+                  resource:
+                    type: static
+                    value: ''
+                  table:
+                    type: static
+                postgresql:
+                  resource:
+                    type: static
+                    value: '$res:f/tonka/pg-bigtonk'
+                  table:
+                    type: static
+                    value: linktree
+                    loading: false
+                    selectOptions:
+                      - sponsors
+                      - linktree
+                snowflake:
+                  resource:
+                    type: static
+                    value: ''
+                  table:
+                    type: static
+              selected: postgresql
+            allEditable:
+              type: static
+              value: true
+            allowDelete:
+              type: static
+              value: true
+            columnDefs:
+              type: static
+              value:
+                - datatype: integer
+                  defaultvalue: 'nextval(''linktree_id_seq''::regclass)'
+                  field: id
+                  isenum: null
+                  isidentity: 'No'
+                  isnullable: 'NO'
+                  isprimarykey: true
+                - datatype: text
+                  defaultvalue: null
+                  field: text
+                  isenum: null
+                  isidentity: 'No'
+                  isnullable: 'YES'
+                  isprimarykey: null
+                - datatype: text
+                  defaultvalue: null
+                  field: href
+                  isenum: null
+                  isidentity: 'No'
+                  isnullable: 'YES'
+                  isprimarykey: null
+                - datatype: text
+                  defaultvalue: null
+                  field: description
+                  isenum: null
+                  isidentity: 'No'
+                  isnullable: 'YES'
+                  isprimarykey: null
+              loading: false
+            customActionsHeader:
+              type: static
+            extraConfig:
+              type: static
+              value: {}
+            flex:
+              type: static
+              value: true
+            footer:
+              type: static
+              value: true
+            hideInsert:
+              type: static
+              value: false
+            hideSearch:
+              type: static
+              value: false
+            multipleSelectable:
+              type: static
+              value: false
+            rowIdCol:
+              type: static
+              value: ''
+            rowMultiselectWithClick:
+              type: static
+              value: true
+            selectFirstRowByDefault:
+              type: static
+              value: true
+            whereClause:
+              type: static
+              value: ''
+            wrapActions:
+              type: static
+              value: false
+          customCss:
+            container:
+              class: ''
+              style: ''
+    b-1:
+      - '12':
+          fixed: false
+          fullHeight: false
+          h: 15
+          w: 12
+          x: 0
+          'y': 0
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 8
+          w: 2
+          x: 0
+          'y': 0
+        id: c
+        data:
+          id: c
+          type: dbexplorercomponent
+          actions: []
+          configuration:
+            type:
+              type: oneOf
+              configuration:
+                bigquery:
+                  resource:
+                    type: static
+                    value: ''
+                  table:
+                    type: static
+                ms_sql_server:
+                  resource:
+                    type: static
+                    value: ''
+                  table:
+                    type: static
+                mysql:
+                  resource:
+                    type: static
+                    value: ''
+                  table:
+                    type: static
+                postgresql:
+                  resource:
+                    type: static
+                    value: '$res:f/tonka/pg-bigtonk'
+                  table:
+                    type: static
+                    value: sponsors
+                    loading: false
+                    selectOptions:
+                      - sponsors
+                      - linktree
+                snowflake:
+                  resource:
+                    type: static
+                    value: ''
+                  table:
+                    type: static
+              selected: postgresql
+            allEditable:
+              type: static
+              value: true
+            allowDelete:
+              type: static
+              value: true
+            columnDefs:
+              type: static
+              value:
+                - datatype: integer
+                  defaultvalue: 'nextval(''sponsors_id_seq''::regclass)'
+                  field: id
+                  isenum: null
+                  isidentity: 'No'
+                  isnullable: 'NO'
+                  isprimarykey: true
+                - datatype: text
+                  defaultvalue: null
+                  field: name
+                  isenum: null
+                  isidentity: 'No'
+                  isnullable: 'NO'
+                  isprimarykey: null
+                - datatype: text
+                  defaultvalue: null
+                  field: logo
+                  isenum: null
+                  isidentity: 'No'
+                  isnullable: 'NO'
+                  isprimarykey: null
+                - datatype: text
+                  defaultvalue: null
+                  field: description
+                  isenum: null
+                  isidentity: 'No'
+                  isnullable: 'YES'
+                  isprimarykey: null
+                - datatype: text
+                  defaultvalue: null
+                  field: href
+                  isenum: null
+                  isidentity: 'No'
+                  isnullable: 'YES'
+                  isprimarykey: null
+                - datatype: text
+                  defaultvalue: null
+                  field: link
+                  isenum: null
+                  isidentity: 'No'
+                  isnullable: 'YES'
+                  isprimarykey: null
+                - datatype: text
+                  defaultvalue: null
+                  field: size
+                  isenum: null
+                  isidentity: 'No'
+                  isnullable: 'YES'
+                  isprimarykey: null
+              loading: false
+            customActionsHeader:
+              type: static
+            extraConfig:
+              type: static
+              value: {}
+            flex:
+              type: static
+              value: true
+            footer:
+              type: static
+              value: true
+            hideInsert:
+              type: static
+              value: false
+            hideSearch:
+              type: static
+              value: false
+            multipleSelectable:
+              type: static
+              value: false
+            rowIdCol:
+              type: static
+              value: ''
+            rowMultiselectWithClick:
+              type: static
+              value: true
+            selectFirstRowByDefault:
+              type: static
+              value: true
+            whereClause:
+              type: static
+              value: ''
+            wrapActions:
+              type: static
+              value: false
+          customCss:
+            container:
+              class: ''
+              style: ''
+    topbar-0:
+      - '12':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 6
+          x: 0
+          'y': 0
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 6
+          x: 0
+          'y': 0
+        id: title
+        data:
+          id: title
+          type: textcomponent
+          actions: []
+          componentInput:
+            type: templatev2
+            connections:
+              - id: summary
+                componentId: ctx
+            eval: '${ctx.summary}'
+            fieldType: template
+          configuration:
+            copyButton:
+              type: static
+              value: false
+            disableNoText:
+              type: static
+              value: true
+              fieldType: boolean
+            style:
+              type: static
+              value: Body
+            tooltip:
+              type: evalv2
+              value: ''
+              connections:
+                - id: author
+                  componentId: ctx
+              expr: '`Author: ${ctx.author}`'
+              fieldType: text
+          customCss:
+            container:
+              class: ''
+              style: ''
+            text:
+              class: text-xl font-semibold whitespace-nowrap truncate
+              style: ''
+          horizontalAlignment: left
+          verticalAlignment: center
+      - '12':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 6
+          x: 6
+          'y': 0
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 3
+          x: 0
+          'y': 1
+        id: recomputeall
+        data:
+          id: recomputeall
+          type: recomputeallcomponent
+          actions: []
+          configuration:
+            defaultRefreshInterval:
+              type: static
+              value: '0'
+          customCss:
+            container:
+              class: ''
+              style: ''
+          horizontalAlignment: right
+          menuItems: []
+          verticalAlignment: center
+  theme:
+    type: path
+    path: f/app_themes/theme_0
+  unusedInlineScripts: []
+policy:
+  allowed_s3_keys: []
+  execution_mode: publisher
+  s3_inputs: []
+  triggerables_v2:
+    'a_count:rawscript/4d2b2b067186fb640ac5b4fbe468b97e8c3c87438a0a6b79436c5f2544ef374c':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'a_delete:rawscript/7f95360ad34f7ad1fda89f8bce280632db7a3b6430408a47edc589fca818d328':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'a_insert:rawscript/69893c8afffe1ba3d0963d16a2491fb304cd40b94f7f5c02a18f4163f150554b':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'a_update:rawscript/335c9a5e33c375d6fa3667c943a72627a568d8ac3fb2c5e14cc894714fc91d4b':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'a_update:rawscript/645ebe2302e82bb93e0307c8701651a2ca2c6f8a9af8b06c0ea36944525e5b73':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'a_update:rawscript/b09f02504f106bb27d43b8a6b9a3053768e304d266a5da3be9a06f71e6f24c15':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'a_update:rawscript/c1a77a06d06544091d3de0ddcc0d46289e2822dc4253a6b1a04943bd5b9c2abc':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'a:rawscript/acc138853c62ae8d0055b1be9543e57354d46a7b7d2f315e87bb44c6cf2a652f':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'c_count:rawscript/f9c7fa01644938c8f2618725acb89948c2569513944d690a26e07e710806590e':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'c_delete:rawscript/c550fbdcfea8ec24130e85a8a652a86ef23eb15266be82f81795761fb2fe420c':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'c_insert:rawscript/b8875bf211639e176bcb6096068c3955fa55f28d5ac4a76080a1941e3405db8f':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'c_update:rawscript/2d410b65141b44819cd518f447a4ece244868bcd93dc61b4a94d75ba2b31c738':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'c_update:rawscript/5e09e48cba442b469e4a258bbd9d8b7b70bf7e253d5b912104405a494ca0d616':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'c_update:rawscript/6146dc709fc3c339d0efb1ce11e4f7330591bab3765a9352575ef0a4a6187ab0':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'c_update:rawscript/8016d096c314715b461118d13efe0eb42c92967ce2163a9d2ca33f59c171182e':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'c_update:rawscript/804b9908c88504abec35fd8da85a50ee0348510b1fa8457b2c3dc0d055b73e70':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'c_update:rawscript/d9517881396b88937c4aadca7134cf2b76660182ec22c1ebb88aa49e3bcdc43b':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'c_update:rawscript/e00147bcb4113f930a38e32a23bd728c589421be5ef6707b1fcbffb9301c5b4b':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
+    'c:rawscript/28efec6bec31cc00c41511faa9a512101984db5f7820435dcbbc596c153d1a61':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        database: '$res:f/tonka/pg-bigtonk'
