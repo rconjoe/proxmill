@@ -1,0 +1,55 @@
+summary: ''
+description: ''
+lock: ''
+kind: script
+schema:
+  $schema: 'https://json-schema.org/draft/2020-12/schema'
+  type: object
+  properties:
+    name:
+      type: string
+      description: ''
+      default: Nicolas Bourbaki
+      originalType: string
+    age:
+      type: integer
+      description: ''
+      default: 42
+    date_of_birth:
+      type: string
+      description: ''
+      default: null
+      format: date-time
+    enable_kill_mode:
+      type: boolean
+      description: ''
+      default: true
+    l:
+      type: array
+      description: ''
+      default:
+        - or
+        - lists!
+      items:
+        type: string
+      originalType: 'string[]'
+    no_default:
+      type: string
+      description: ''
+      default: null
+      originalType: string
+    obj:
+      type: object
+      description: ''
+      default:
+        records: included
+      properties: {}
+    tables:
+      type: array
+      description: ''
+      default: null
+      items:
+        type: object
+      originalType: 'object[]'
+  required:
+    - no_default
