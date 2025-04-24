@@ -1,0 +1,11 @@
+description: cs-demfiles bucket r2
+value:
+  accessKey: '$var:u/jcarlton1227/csdemfiles-accesskey'
+  bucket: cs-demfiles
+  endPoint: 97ccb58b653cc030a00719ed958e16f7.r2.cloudflarestorage.com
+  pathStyle: true
+  port: 443
+  region: auto
+  secretKey: '$var:u/jcarlton1227/csdemfiles_secret'
+  useSSL: true
+resource_type: s3
