@@ -1,0 +1,11 @@
+description: bucket-production-0799.up.railway.app
+value:
+  accessKey: '$var:u/jcarlton1227/csdemo_minio_access'
+  bucket: cs-demos
+  endPoint: bucket-production-0799.up.railway.app
+  pathStyle: true
+  port: 443
+  region: auto
+  secretKey: '$var:u/jcarlton1227/csdem_minio_secret'
+  useSSL: true
+resource_type: s3

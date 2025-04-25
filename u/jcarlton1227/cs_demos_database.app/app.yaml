@@ -1,0 +1,992 @@
+summary: CS Demos Database
+value:
+  css:
+    containercomponent:
+      container:
+        class: ''
+        style: ''
+    tablecomponent:
+      container:
+        class: ''
+        style: ''
+      tableBody:
+        class: ''
+        style: ''
+      tableFooter:
+        class: ''
+        style: ''
+      tableHeader:
+        class: ''
+        style: ''
+    textcomponent:
+      container:
+        class: ''
+        style: ''
+      text:
+        class: ''
+        style: ''
+  fullscreen: true
+  grid:
+    - '12':
+        id: b
+        fixed: true
+        fullHeight: false
+        h: 1
+        w: 3
+        x: 0
+        'y': 0
+      '3':
+        fixed: true
+        fullHeight: false
+        h: 1
+        w: 1
+        x: 0
+        'y': 0
+      id: b
+      data:
+        id: b
+        type: textcomponent
+        componentInput:
+          type: template
+          value: 'Hello ${ctx.username}'
+          eval: Files
+          fieldType: template
+        configuration:
+          copyButton:
+            type: static
+            value: false
+          style:
+            type: static
+            value: Title
+          tooltip:
+            type: static
+            value: ''
+        customCss:
+          container:
+            class: ''
+            style: ''
+          text:
+            class: ''
+            style: ''
+        horizontalAlignment: left
+        verticalAlignment: center
+    - '12':
+        id: d
+        fixed: true
+        fullHeight: false
+        h: 1
+        w: 1
+        x: 3
+        'y': 0
+      '3':
+        fixed: true
+        fullHeight: false
+        h: 3
+        w: 1
+        x: 0
+        'y': 12
+      id: d
+      data:
+        id: d
+        type: iconcomponent
+        configuration:
+          color:
+            type: static
+            value: currentColor
+          icon:
+            type: static
+            value: FolderSearch
+          size:
+            type: static
+            value: 24
+          strokeWidth:
+            type: static
+            value: 2
+        customCss:
+          container:
+            class: ''
+            style: ''
+          icon:
+            class: text-gray-600
+            style: ''
+        horizontalAlignment: right
+        verticalAlignment: center
+    - '12':
+        id: c
+        fixed: true
+        fullHeight: false
+        h: 1
+        w: 3
+        x: 4
+        'y': 0
+      '3':
+        fixed: true
+        fullHeight: false
+        h: 1
+        w: 2
+        x: 0
+        'y': 11
+      id: c
+      data:
+        id: c
+        type: textinputcomponent
+        configuration:
+          defaultValue:
+            type: static
+          placeholder:
+            type: static
+            value: Search by file name (prefix)
+        customCss:
+          input:
+            class: rounded
+            style: ''
+        verticalAlignment: center
+    - '12':
+        id: e
+        fixed: false
+        fullHeight: false
+        h: 9
+        w: 5
+        x: 7
+        'y': 0
+      '3':
+        fixed: false
+        fullHeight: false
+        h: 8
+        w: 2
+        x: 0
+        'y': 15
+      id: e
+      data:
+        id: e
+        type: containercomponent
+        configuration: {}
+        customCss:
+          container:
+            class: ''
+            style: ''
+        numberOfSubgrids: 1
+    - '12':
+        id: a
+        fixed: true
+        fullHeight: false
+        h: 23
+        w: 7
+        x: 0
+        'y': 1
+      '3':
+        fixed: true
+        fullHeight: false
+        h: 10
+        w: 3
+        x: 0
+        'y': 1
+      id: a
+      data:
+        id: a
+        type: tablecomponent
+        actionButtons:
+          - id: a_a
+            type: buttoncomponent
+            componentInput:
+              type: runnable
+              fields:
+                object_name:
+                  type: connected
+                  value: null
+                  connection:
+                    componentId: a
+                    path: selectedRow.key
+                  fieldType: string
+                s3:
+                  type: static
+                  value: '$res:u/adam/my_s3'
+                  fieldType: object
+                  format: resource-s3
+              fieldType: any
+              recomputeOnInputChanged: true
+              runnable:
+                type: runnableByName
+                name: Delete object
+                inlineScript:
+                  content: '!inline delete_object.inline_script.deno.ts'
+                  lock: '!inline delete_object.inline_script.lock'
+                  language: deno
+                  path: u/adam/file-explorer/Delete object
+                  schema:
+                    $schema: 'https://json-schema.org/draft/2020-12/schema'
+                    type: object
+                    properties:
+                      object_name:
+                        type: string
+                        default: null
+                      s3:
+                        type: object
+                        default: null
+                        format: resource-s3
+                    required:
+                      - s3
+                      - object_name
+            configuration:
+              afterIcon:
+                type: static
+                value: Trash2
+              beforeIcon:
+                type: static
+              color:
+                type: static
+                value: red
+              disabled:
+                type: eval
+                expr: 'false'
+              fillContainer:
+                type: static
+                value: false
+              label:
+                type: static
+                value: Delete
+              onSuccess:
+                type: oneOf
+                configuration:
+                  gotoUrl:
+                    newTab:
+                      type: static
+                      value: true
+                    url:
+                      type: static
+                      value: ''
+                  none: {}
+                  sendToast:
+                    message:
+                      type: static
+                      value: Successful delete
+                  setTab:
+                    setTab:
+                      type: static
+                      value: []
+                selected: sendToast
+              size:
+                type: static
+                value: xs
+              triggerOnAppLoad:
+                type: static
+                value: false
+            customCss:
+              button:
+                class: ''
+                style: ''
+            horizontalAlignment: center
+            recomputeIds:
+              - bg_0
+            verticalAlignment: center
+        componentInput:
+          type: connected
+          value:
+            - id: 1
+              name: A cell with a long name
+              age: 42
+            - id: 2
+              name: A briefer cell
+              age: 84
+          connection:
+            componentId: bg_0
+            path: result
+          fieldType: array
+          subFieldType: object
+        configuration:
+          columnDefs:
+            type: static
+            value: []
+          downloadButton:
+            type: static
+          initialState:
+            type: static
+          pagination:
+            type: oneOf
+            configuration:
+              auto:
+                pageSize:
+                  type: static
+                  value: 20
+              manual:
+                pageCount:
+                  type: static
+                  value: -1
+            selected: auto
+          search:
+            type: static
+            value: Disabled
+        customCss:
+          container:
+            class: ''
+            style: ''
+          tableBody:
+            class: ''
+            style: ''
+          tableFooter:
+            class: ''
+            style: ''
+          tableHeader:
+            class: ''
+            style: ''
+    - '12':
+        id: k
+        fixed: false
+        fullHeight: false
+        h: 15
+        w: 5
+        x: 7
+        'y': 9
+      '3':
+        fixed: false
+        fullHeight: false
+        h: 8
+        w: 2
+        x: 0
+        'y': 23
+      id: k
+      data:
+        id: k
+        type: containercomponent
+        configuration: {}
+        customCss:
+          container:
+            class: ''
+            style: ''
+        numberOfSubgrids: 1
+  hiddenInlineScripts:
+    - type: runnableByName
+      name: Get objects
+      autoRefresh: true
+      fields:
+        bucketName:
+          type: static
+          value: null
+          fieldType: string
+        maxResults:
+          type: static
+          value: null
+          fieldType: number
+        pageSize:
+          type: static
+          value: null
+          fieldType: number
+        prefix:
+          type: connected
+          value: null
+          connection:
+            componentId: c
+            path: result
+          fieldType: string
+        s3:
+          type: static
+          value: '$res:u/jcarlton1227/csdemos_minio'
+          fieldType: object
+          format: resource-s3
+      inlineScript:
+        content: '!inline get_objects.inline_script.deno.ts'
+        lock: '!inline get_objects.inline_script.lock'
+        language: deno
+        path: u/adam/file-explorer/Get objects
+        schema:
+          $schema: 'https://json-schema.org/draft/2020-12/schema'
+          type: object
+          properties:
+            bucketName:
+              type: string
+              default: null
+            maxResults:
+              type: number
+              default: null
+            pageSize:
+              type: number
+              default: null
+            prefix:
+              type: string
+              default: null
+            s3:
+              type: object
+              default: null
+              format: resource-s3
+          required:
+            - s3
+      noBackendValue:
+        - type: Object
+          etag: 9a192d8b1a7dc652a19835f6f08098bd
+          key: file.pdf
+          lastModified: '2023-04-10T15:09:39.000Z'
+          size: 1016315
+        - type: Object
+          etag: 28e3fe7912a0c5cb16c66b4030b8fb76
+          key: message.txt
+          lastModified: '2023-04-10T18:38:41.000Z'
+          size: 31
+        - type: Object
+          etag: f7e709f7cced95593c226bbea8e68f59
+          key: nuggies.jpeg
+          lastModified: '2023-04-10T19:31:05.000Z'
+          size: 26391
+        - type: Object
+          etag: bfd41c220cbc7b1c4df96ce0bce536a7
+          key: soc.png
+          lastModified: '2023-04-10T19:31:29.000Z'
+          size: 33618
+        - type: Object
+          etag: dc442c4d05a03f81ce07bf01fc1e2cb9
+          key: test.html
+          lastModified: '2023-04-10T19:08:06.000Z'
+          size: 422
+        - type: Object
+          etag: 7fab870591a2fefd78f084dda6159d56
+          key: tiny.json
+          lastModified: '2023-04-10T19:13:32.000Z'
+          size: 57
+      recomputeOnInputChanged: true
+  norefreshbar: false
+  subgrids:
+    e-0:
+      - '12':
+          id: f
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 12
+          x: 0
+          'y': 0
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 1
+          x: 0
+          'y': 0
+        id: f
+        data:
+          id: f
+          type: textcomponent
+          componentInput:
+            type: template
+            value: 'Hello ${ctx.username}'
+            eval: Upload
+            fieldType: template
+          configuration:
+            copyButton:
+              type: static
+              value: false
+            style:
+              type: static
+              value: Subtitle
+            tooltip:
+              type: static
+              value: ''
+          customCss: {}
+          horizontalAlignment: left
+          verticalAlignment: center
+      - '12':
+          id: g
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 12
+          x: 0
+          'y': 1
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 1
+          x: 1
+          'y': 0
+        id: g
+        data:
+          id: g
+          type: textcomponent
+          componentInput:
+            type: template
+            value: 'Hello ${ctx.username}'
+            eval: Access level
+            fieldType: template
+          configuration:
+            copyButton:
+              type: static
+              value: false
+            style:
+              type: static
+              value: Label
+            tooltip:
+              type: static
+              value: ''
+          customCss:
+            container:
+              class: ''
+              style: ''
+            text:
+              class: ''
+              style: ''
+          horizontalAlignment: left
+          verticalAlignment: bottom
+      - '12':
+          id: h
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 12
+          x: 0
+          'y': 2
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 2
+          x: 0
+          'y': 1
+        id: h
+        data:
+          id: h
+          type: selectcomponent
+          configuration:
+            create:
+              type: static
+              value: false
+            defaultValue:
+              type: static
+              value: private
+            disabled:
+              type: static
+            fullWidth:
+              type: static
+            items:
+              type: static
+              value:
+                - value: private
+                  label: Private
+                - value: public-read
+                  label: Public (read only)
+                - value: public-read-write
+                  label: 'Public (read, write)'
+            placeholder:
+              type: static
+              value: Select an item
+            preselectFirst:
+              type: static
+          customCss:
+            input:
+              style: 'border-radius: 4px;'
+          verticalAlignment: center
+      - '12':
+          id: i
+          fixed: false
+          fullHeight: false
+          h: 4
+          w: 12
+          x: 0
+          'y': 3
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 4
+          w: 3
+          x: 0
+          'y': 2
+        id: i
+        data:
+          id: i
+          type: fileinputcomponent
+          configuration:
+            acceptedFileTypes:
+              type: static
+              value:
+                - '*'
+            allowMultiple:
+              type: static
+              value: true
+            text:
+              type: static
+              value: Drag and drop files or click to select them
+          customCss: {}
+      - '12':
+          id: j
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 12
+          x: 0
+          'y': 7
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 1
+          x: 0
+          'y': 6
+        id: j
+        data:
+          id: j
+          type: buttoncomponent
+          componentInput:
+            type: runnable
+            fields:
+              acl:
+                type: connected
+                value: null
+                connection:
+                  componentId: h
+                  path: result
+                fieldType: string
+              objects:
+                type: connected
+                value: null
+                connection:
+                  componentId: i
+                  path: result
+                fieldType: array
+              s3:
+                type: static
+                value: '$res:u/jcarlton1227/csdemos_minio'
+                fieldType: object
+                format: resource-s3
+            fieldType: any
+            recomputeOnInputChanged: true
+            runnable:
+              type: runnableByName
+              name: Upload objects
+              inlineScript:
+                content: '!inline upload_objects.inline_script.deno.ts'
+                lock: '!inline upload_objects.inline_script.lock'
+                language: deno
+                path: u/adam/file-explorer/Upload objects
+                schema:
+                  $schema: 'https://json-schema.org/draft/2020-12/schema'
+                  type: object
+                  properties:
+                    acl:
+                      type: string
+                      default: null
+                    objects:
+                      type: array
+                      default: null
+                      items:
+                        type: object
+                    s3:
+                      type: object
+                      default: null
+                      format: resource-s3
+                  required:
+                    - s3
+                    - objects
+                    - acl
+          configuration:
+            afterIcon:
+              type: static
+            beforeIcon:
+              type: static
+              value: Upload
+            color:
+              type: static
+              value: dark
+            disabled:
+              type: eval
+              expr: '!i.result?.length'
+            fillContainer:
+              type: static
+              value: true
+            label:
+              type: static
+              value: Upload file(s)
+            onSuccess:
+              type: oneOf
+              configuration:
+                gotoUrl:
+                  newTab:
+                    type: static
+                    value: true
+                  url:
+                    type: static
+                    value: ''
+                none: {}
+                sendToast:
+                  message:
+                    type: static
+                    value: Successful upload
+                setTab:
+                  setTab:
+                    type: static
+                    value: []
+              selected: sendToast
+            size:
+              type: static
+              value: xs
+            triggerOnAppLoad:
+              type: static
+              value: false
+          customCss: {}
+          horizontalAlignment: center
+          recomputeIds:
+            - bg_0
+          verticalAlignment: center
+    k-0:
+      - '12':
+          id: l
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 5
+          x: 0
+          'y': 0
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 1
+          x: 0
+          'y': 0
+        id: l
+        data:
+          id: l
+          type: textcomponent
+          componentInput:
+            type: template
+            value: 'Hello ${ctx.username}'
+            eval: Preview
+            fieldType: template
+          configuration:
+            copyButton:
+              type: static
+              value: false
+            style:
+              type: static
+              value: Subtitle
+            tooltip:
+              type: static
+              value: ''
+          customCss: {}
+          horizontalAlignment: left
+          verticalAlignment: center
+      - '12':
+          id: o
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 7
+          x: 5
+          'y': 0
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 1
+          w: 1
+          x: 0
+          'y': 9
+        id: o
+        data:
+          id: o
+          type: buttoncomponent
+          componentInput:
+            type: runnable
+            fields:
+              object_name:
+                type: connected
+                value: null
+                connection:
+                  componentId: a
+                  path: selectedRow.key
+                fieldType: string
+              s3:
+                type: static
+                value: '$res:u/jcarlton1227/csdemos_minio'
+                fieldType: object
+                format: resource-s3
+            fieldType: any
+            recomputeOnInputChanged: true
+            runnable:
+              type: runnableByName
+              name: Get object signed URL
+              inlineScript:
+                content: '!inline get_object_signed_url.inline_script.deno.ts'
+                lock: '!inline get_object_signed_url.inline_script.lock'
+                language: deno
+                path: u/adam/file-explorer/Get object signed URL
+                schema:
+                  $schema: 'https://json-schema.org/draft/2020-12/schema'
+                  type: object
+                  properties:
+                    object_name:
+                      type: string
+                      default: null
+                    s3:
+                      type: object
+                      default: null
+                      format: resource-s3
+                  required:
+                    - s3
+                    - object_name
+          configuration:
+            afterIcon:
+              type: static
+              value: ExternalLink
+            beforeIcon:
+              type: static
+            color:
+              type: static
+              value: dark
+            disabled:
+              type: eval
+              expr: '!a.selectedRow'
+            fillContainer:
+              type: static
+              value: false
+            label:
+              type: static
+              value: Open presigned URL
+            onSuccess:
+              type: oneOf
+              configuration:
+                gotoUrl:
+                  newTab:
+                    type: static
+                    value: true
+                  url:
+                    type: connected
+                    value: ''
+                    connection:
+                      componentId: o
+                      path: result
+                none: {}
+                sendToast:
+                  message:
+                    type: static
+                    value: ''
+                setTab:
+                  setTab:
+                    type: static
+                    value: []
+              selected: gotoUrl
+            size:
+              type: static
+              value: xs
+            triggerOnAppLoad:
+              type: static
+              value: false
+          customCss: {}
+          horizontalAlignment: right
+          verticalAlignment: center
+      - '12':
+          id: m
+          fixed: false
+          fullHeight: false
+          h: 13
+          w: 12
+          x: 0
+          'y': 1
+        '3':
+          fixed: false
+          fullHeight: false
+          h: 8
+          w: 2
+          x: 0
+          'y': 1
+        id: m
+        data:
+          id: m
+          type: displaycomponent
+          componentInput:
+            type: runnable
+            value:
+              type: Object
+              etag: 9a192d8b1a7dc652a19835f6f08098bd
+              key: file.pdf
+              lastModified: '2023-04-10T15:09:39.000Z'
+              size: 1016315
+            autoRefresh: true
+            connection:
+              componentId: a
+              path: selectedRow
+            fields:
+              object:
+                type: connected
+                value: null
+                connection:
+                  componentId: a
+                  path: selectedRow
+                fieldType: object
+              s3:
+                type: static
+                value: '$res:u/jcarlton1227/csdemos_minio'
+                fieldType: object
+                format: resource-s3
+            fieldType: object
+            recomputeOnInputChanged: true
+            runnable:
+              type: runnableByName
+              name: Get object preview
+              inlineScript:
+                content: '!inline get_object_preview.inline_script.deno.ts'
+                lock: '!inline get_object_preview.inline_script.lock'
+                language: deno
+                path: u/faton/newapp/Get_object_preview
+                schema:
+                  $schema: 'https://json-schema.org/draft/2020-12/schema'
+                  type: object
+                  properties:
+                    object:
+                      type: object
+                      default: null
+                      properties:
+                        key:
+                          type: string
+                    s3:
+                      type: object
+                      default: null
+                      format: resource-s3
+                  required:
+                    - s3
+                    - object
+          configuration:
+            hideDetails:
+              type: static
+            title:
+              type: static
+          customCss:
+            container:
+              class: overflow-auto
+              style: ''
+            header:
+              class: hidden
+              style: ''
+  theme:
+    type: inlined
+    css: ''
+  unusedInlineScripts: []
+policy:
+  allowed_s3_keys: []
+  execution_mode: publisher
+  s3_inputs: []
+  triggerables_v2:
+    'a_a:rawscript/cbc0d76dbb0f506d531962af65c3c5d2386c9f68fd592c5b4152bd8804caf35d':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        s3: '$res:u/adam/my_s3'
+    'bg_0:rawscript/3f4e4aaea75f73b2d032cfd44478c36a4f495a2c85869b347c16a2876fe67001':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        bucketName: null
+        maxResults: null
+        pageSize: null
+        s3: '$res:u/jcarlton1227/csdemos_minio'
+    'j:rawscript/3de5456d53d761f4cfeb0e641ff5da639c6ba8fa06fc738fd0dbc4d3eef813ef':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        s3: '$res:u/jcarlton1227/csdemos_minio'
+    'm:rawscript/d21656b1ffdaea6035f6dcb73c45d841c96f84dab6d7034533a448064d4fef44':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        s3: '$res:u/jcarlton1227/csdemos_minio'
+    'o:rawscript/cd82d823a952a24766a468f9fa75f4a6798c538be08c1852f0f24cb98d59a5a2':
+      allow_user_resources: []
+      one_of_inputs: {}
+      static_inputs:
+        s3: '$res:u/jcarlton1227/csdemos_minio'
