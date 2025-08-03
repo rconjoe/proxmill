@@ -209,8 +209,8 @@ value:
                 type: runnableByName
                 name: Delete object
                 inlineScript:
-                  content: '!inline delete_object.inline_script.deno.ts'
-                  lock: '!inline delete_object.inline_script.lock'
+                  content: '!inline undefined.inline_script.deno.ts'
+                  lock: '!inline undefined.inline_script.lock'
                   language: deno
                   path: u/adam/file-explorer/Delete object
                   schema:
@@ -384,8 +384,8 @@ value:
           fieldType: object
           format: resource-s3
       inlineScript:
-        content: '!inline get_objects.inline_script.deno.ts'
-        lock: '!inline get_objects.inline_script.lock'
+        content: '!inline undefined.inline_script.deno.ts'
+        lock: '!inline undefined.inline_script.lock'
         language: deno
         path: u/adam/file-explorer/Get objects
         schema:
@@ -651,8 +651,8 @@ value:
               type: runnableByName
               name: Upload objects
               inlineScript:
-                content: '!inline upload_objects.inline_script.deno.ts'
-                lock: '!inline upload_objects.inline_script.lock'
+                content: '!inline undefined.inline_script.deno.ts'
+                lock: '!inline undefined.inline_script.lock'
                 language: deno
                 path: u/adam/file-explorer/Upload objects
                 schema:
@@ -803,8 +803,8 @@ value:
               type: runnableByName
               name: Get object signed URL
               inlineScript:
-                content: '!inline get_object_signed_url.inline_script.deno.ts'
-                lock: '!inline get_object_signed_url.inline_script.lock'
+                content: '!inline undefined.inline_script.deno.ts'
+                lock: '!inline undefined.inline_script.lock'
                 language: deno
                 path: f/tonka/r2_explorer/Get_object_signed_URL
                 schema:
@@ -925,8 +925,8 @@ value:
               type: runnableByName
               name: Get object preview
               inlineScript:
-                content: '!inline get_object_preview.inline_script.deno.ts'
-                lock: '!inline get_object_preview.inline_script.lock'
+                content: '!inline undefined.inline_script.deno.ts'
+                lock: '!inline undefined.inline_script.lock'
                 language: deno
                 path: u/faton/newapp/Get_object_preview
                 schema:
